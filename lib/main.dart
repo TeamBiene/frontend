@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Text(
             "Something revolutionary different than the second screen"),
       ),
+      Center(child: Text("This page is left intentionally blank.")),
     ];
   }
 
