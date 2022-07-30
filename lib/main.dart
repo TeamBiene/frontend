@@ -5,6 +5,8 @@ import 'package:frontend/map.dart';
 import 'package:frontend/restHelper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'newsScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -72,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Text("Loading");
                 }
               })),
-      Center(child: Text("Something else")),
+      Center(child: NewsScreen()),
       Center(
         child: const Text(
             "Something revolutionary different than the second screen"),
