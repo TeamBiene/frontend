@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _screenList = [
       Center(
           child: FutureBuilder(
-              future: RestHelper.getCircles(),
+              future: RestHelper.getCircles(context),
               builder:
                   (BuildContext context, AsyncSnapshot<Set<Circle>> snapshot) {
                 if (snapshot.hasData) {
