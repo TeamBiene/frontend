@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:permission_handler/permission_handler.dart';
 
 class HiveMap extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class HiveMap extends StatefulWidget {
 
 class HiveMapState extends State<HiveMap> {
   Completer<GoogleMapController> _controller = Completer();
+  // Future<bool> _locationPermission = Permission.contacts.request().isGranted;
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
