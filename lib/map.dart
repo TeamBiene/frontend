@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MyMap extends StatefulWidget {
+class HiveMap extends StatefulWidget {
   @override
-  State<MyMap> createState() => MyMapState();
+  State<HiveMap> createState() => HiveMapState();
 }
 
-class MyMapState extends State<MyMap> {
+class HiveMapState extends State<HiveMap> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
