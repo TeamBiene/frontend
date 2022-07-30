@@ -28,6 +28,7 @@ class BeeHivePopupState extends State<BeeHivePopup> {
               ),
               initialValue: "BeeHive1",
             ),
+            SizedBox(height: 10),
             const Text('Breed'),
             TextFormField(
               decoration: InputDecoration(
@@ -35,6 +36,7 @@ class BeeHivePopupState extends State<BeeHivePopup> {
               ),
               initialValue: "Carnica",
             ),
+            SizedBox(height: 10),
             const Text('Bee count'),
             TextFormField(
               decoration: InputDecoration(
@@ -42,12 +44,27 @@ class BeeHivePopupState extends State<BeeHivePopup> {
               ),
               initialValue: "514",
             ),
+            SizedBox(height: 10),
             const Text('Flight radius'),
             TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
               ),
               initialValue: "7 km",
+            ),
+            SizedBox(height: 10),
+            Center(
+              child: Ink(
+                decoration: const ShapeDecoration(
+                  color: Colors.red,
+                  shape: CircleBorder(),
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.delete),
+                  color: Colors.white,
+                  onPressed: () {},
+                ),
+              ),
             ),
           ],
         ));
