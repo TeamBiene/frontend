@@ -1,5 +1,9 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/map.dart';
+import 'package:frontend/restHelper.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,19 +54,40 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  List<Widget> _screenList = [
-    Center(child: HiveMap()),
-    Center(child: Text("Something else")),
-    Center(
-      child: const Text(
-          "Something revolutionary different than the second screen"),
-    ),
-  ];
+
+  List<Widget> _screenList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _screenList = [
+      Center(
+          child: FutureBuilder(
+              future: RestHelper.getCircles(),
+              builder:
+                  (BuildContext context, AsyncSnapshot<Set<Circle>> snapshot) {
+                if (snapshot.hasData) {
+                  return HiveMap(circles: snapshot.data!);
+                } else {
+                  return Text("Loading");
+                }
+              })),
+      Center(child: Text("Something else")),
+      Center(
+        child: const Text(
+            "Something revolutionary different than the second screen"),
+      ),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  Set<Circle> getCircles() {
+    return HashSet();
   }
 
   @override
