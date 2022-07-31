@@ -6,6 +6,7 @@ import 'package:frontend/restHelper.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'newsScreen.dart';
+import 'jwt.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    getWebtoken();
     super.initState();
     _screenList = [
       Center(

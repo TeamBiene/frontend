@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
-
 import 'models/News.dart';
 
 class NewsScreen extends StatefulWidget {
@@ -23,8 +23,16 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   Future<List<News>> fetchNews() async {
-    final response = await http.get(Uri.parse(
-        'https://api.bee.tust.at/news?association=cl686rjxd000009mmabyld8us'));
+    String? webtoken = await const FlutterSecureStorage().read(key: 'token');
+    final response = await http.get(
+      Uri.parse(
+          'https://api.bee.tust.at/news?association=cl686rjxd000009mmabyld8us'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json',
+        'X-JWT-Token': '$webtoken',
+      },
+    );
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
