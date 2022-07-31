@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    getWebtoken();
+    getDevWebtoken(); //TODO: replace with proper login
     super.initState();
     _screenList = [
       Center(
